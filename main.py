@@ -1,14 +1,17 @@
 import cv2
 import numpy as np
 import tensorflow as tf
+from tensorflow import keras
+from keras.layers import Dense
+from keras.models import Sequential, load_model, Model
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from tensorflow.keras.layers import Input, Lambda, Dense, Flatten
-from tensorflow.keras.models import Model
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.applications import MobileNetV2
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from google.colab.patches import cv2_imshow
+from keras.layers import Input, Lambda, Dense, Flatten
+from keras.models import Model
+from keras.optimizers import Adam
+from keras.applications import MobileNetV2
+from keras.preprocessing.image import ImageDataGenerator
+# from google.colab.patches import cv2_imshow
 
 # Load Haar Cascade for face detection
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -109,6 +112,6 @@ for (label, confidence, (x, y, w, h)) in recognized_faces:
 cv2.imwrite('./', input_image)
 
 # Show the output image
-cv2_imshow(input_image)
+cv2.imshow(input_image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
