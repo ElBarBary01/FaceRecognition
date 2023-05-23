@@ -21,7 +21,7 @@ def detect_faces(img):
 
 # Load the LFW dataset
 lfw_data_dir = "./lfw"
-lfw_data = tf.keras.preprocessing.image_dataset_from_directory(lfw_data_dir, labels="inferred", label_mode="int")
+lfw_data = tf.keras.preprocessing.image_dataset_from_directory(lfw_data_dir, labels="inferred", label_mode="categorical")
 
 # Preprocess the images and labels
 X = []
@@ -53,7 +53,7 @@ inputs = Input(shape=input_shape)
 x = Lambda(preprocess)(inputs)
 x = base_model(x)
 x = Dense(128, activation='relu')(x)
-outputs = Dense(len(np.unique(y)), activation='softmax')(x)
+outputs = Dense(len(np.unique(y)), activation='sigmoid')(x)
 facenet = Model(inputs, outputs)
 
 # Compile the model
