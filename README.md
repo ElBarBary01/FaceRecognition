@@ -9,14 +9,14 @@ This project aims to demonstrate face recognition using two different approaches
 The `basic_face_recognition.py` file contains a simple face recognition application using scikit-learn. It demonstrates the basic principles of face recognition using machine learning techniques.
 
 ### Requirements
-- Python 3.x
-- scikit-learn
+- Python 3.2^
+- cv2 library
 ## Advanced Face Recognition (VGG-16)
 
 The `advanced_face_recognition.py` file contains a more sophisticated face recognition system using the VGG-16 convolutional neural network.
 
 ### Requirements
-- Python 3.x
+- Python 3.11^
 - TensorFlow
 - Keras
 
